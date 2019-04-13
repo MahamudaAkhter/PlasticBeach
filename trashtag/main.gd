@@ -6,7 +6,7 @@ extends Node2D
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
-	# Initialization here
+	# Initialization here nice
 	pass
 
 func _process(delta):
@@ -18,8 +18,3 @@ func _process(delta):
 		$panels/progress.show()
 	if(global.type == 3):
 		$panels/done.show()
-
-func _on_profile_pressed():
-	get_tree().change_scene("res://user.tscn")
-	pass # replace with function body
-
