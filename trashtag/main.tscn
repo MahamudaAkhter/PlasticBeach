@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
@@ -19,6 +20,7 @@
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
+
 
 [node name="Node2D" type="Node2D" index="0"]
 
@@ -257,7 +259,7 @@ margin_right = 110.0
 margin_bottom = 137.0
 rect_scale = Vector2( 0.3, 0.25 )
 _sections_unfolded = [ "Rect", "Theme", "Visibility", "custom_styles" ]
-
+s
 [node name="progress" parent="panels" index="1" instance=ExtResource( 13 )]
 
 visible = false
@@ -267,6 +269,9 @@ margin_right = 110.0
 margin_bottom = 137.0
 rect_scale = Vector2( 0.3, 0.25 )
 _sections_unfolded = [ "Rect", "Theme", "Visibility", "custom_styles" ]
+
+[connection signal="pressed" from="profile" to="." method="_on_profile_pressed"]
+
 
 [node name="done" parent="panels" index="2" instance=ExtResource( 14 )]
 
