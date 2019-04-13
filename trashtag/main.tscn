@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://images/background.PNG" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://available_pin.tscn" type="PackedScene" id=9]
 [ext_resource path="res://progress_pin.tscn" type="PackedScene" id=10]
 [ext_resource path="res://panels/available_panel.tscn" type="PackedScene" id=11]
+[ext_resource path="res://panels/process_panel.tscn" type="PackedScene" id=12]
 
 [node name="Node2D" type="Node2D" index="0"]
 
@@ -212,6 +213,16 @@ scale = Vector2( 0.102618, 0.0647929 )
 [node name="panels" type="Node2D" parent="." index="10"]
 
 [node name="available" parent="panels" index="0" instance=ExtResource( 11 )]
+
+visible = false
+margin_left = -19.0
+margin_top = -17.0
+margin_right = 110.0
+margin_bottom = 137.0
+rect_scale = Vector2( 0.3, 0.25 )
+_sections_unfolded = [ "Rect", "Theme", "Visibility", "custom_styles" ]
+
+[node name="progress" parent="panels" index="1" instance=ExtResource( 12 )]
 
 visible = false
 margin_left = -19.0
