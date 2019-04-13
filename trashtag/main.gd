@@ -14,5 +14,5 @@ func _process(delta):
 	$footer/counter2.text = "Pins collected: "+ String(global.done)
 	if(global.type == 1):
 		$panels/available.show()
-		if(global.hide == true):
-			$panels/available.hide()
+	if(global.type == 2):
+		$panels/progress.show()

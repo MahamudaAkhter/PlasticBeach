@@ -9,7 +9,7 @@ var done = 0
 #2 is progress
 #1 is available
 var type = 0
-var hide = true
+var hide = false
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
