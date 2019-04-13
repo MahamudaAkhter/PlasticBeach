@@ -278,4 +278,6 @@ margin_bottom = 135.0
 rect_scale = Vector2( 0.3, 0.25 )
 _sections_unfolded = [ "Rect", "Theme", "Visibility", "custom_styles" ]
 
+[connection signal="pressed" from="profile" to="." method="_on_profile_pressed"]
+
 
