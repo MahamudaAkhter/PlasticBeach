@@ -72,7 +72,7 @@ _sections_unfolded = [ "Editor", "Limit", "Smoothing" ]
 
 [node name="map" type="Sprite" parent="bg/Node2D" index="0"]
 
-position = Vector2( -1.28379, 2.14259 )
+position = Vector2( -0.9708, 2.93028 )
 scale = Vector2( 0.2, 0.15 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Rect", "Region", "Transform" ]
