@@ -5,7 +5,7 @@
 [ext_resource path="res://images/profile.png" type="Texture" id=3]
 [ext_resource path="res://images/backButton.png" type="Texture" id=4]
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -125,7 +125,31 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors" ]
 
-[node name="TextureButton" type="TextureButton" parent="." index="3"]
+[node name="Label2" type="Label" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 14.0
+margin_top = 377.0
+margin_right = 127.0
+margin_bottom = 391.0
+rect_scale = Vector2( 1.5, 1.2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Reward points: 0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors" ]
+
+[node name="TextureButton" type="TextureButton" parent="." index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0

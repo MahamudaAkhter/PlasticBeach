@@ -11,7 +11,7 @@ func _ready():
 
 func _process(delta):
 	$footer/counter.text = "Pins submitted: "+ String(global.tags)
-	$footer/counter2.text = "Pins collected: "+ String(global.done)
+	$footer/counter2.text = "Pins in progress: "+ String(global.done)
 	if(global.type == 1 and not global.accepted):
 		$panels/available.show()
 	if(global.type == 2):
