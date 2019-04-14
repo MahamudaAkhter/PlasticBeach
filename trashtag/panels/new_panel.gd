@@ -10,10 +10,13 @@ func _ready():
 	# Initialization here
 	pass
 
-#func _process(delta):
+func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
-#	pass
+	$name.text = global.pinname
+	$address.text = global.location
+	$bg.texture = load(global.img)
+	pass
 
 
 func _on_close_pressed():
@@ -23,7 +26,7 @@ func _on_close_pressed():
 
 
 func _on_accept_pressed():
-	global.accepted = true
+	global.acceptednew = true
 	global.type = 0
 	self.hide()
 	pass # replace with function body

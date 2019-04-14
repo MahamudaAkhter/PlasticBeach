@@ -10,6 +10,14 @@ var done = 0
 #1 is available
 var type = 0
 var hide = false
+var pinname = ""
+var location = ""
+var img = ""
+var rating = 0
+var accepted = false
+var acceptednew= false
+var added = false
+
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
