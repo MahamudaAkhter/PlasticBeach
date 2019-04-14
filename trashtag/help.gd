@@ -5,7 +5,6 @@ extends Panel
 # var b = "textvar"
 
 func _ready():
-	global.hide = false
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
@@ -16,14 +15,11 @@ func _ready():
 #	pass
 
 
-func _on_close_pressed():
+func _on_Button_pressed():
 	self.hide()
-	global.type = 0
 	pass # replace with function body
 
 
-func _on_accept_pressed():
-	global.accepted = true
-	global.type = 0
-	self.hide()
+func _on_help_pressed():
+	self.show()
 	pass # replace with function body

@@ -12,12 +12,12 @@ func _ready():
 func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
-	if(global.accepted):
+	if(global.acceptednew):
 		$TextureButton.texture_normal = load("res://images/loading.png")
 		$TextureButton.texture_hover = load("res://images/loading_hover.png")
 		$TextureButton.texture_pressed = load("res://images/loading_hover.png")
 	pass
 
 func _on_TextureButton_pressed():
-	global.type = 1
+	global.type = 4
 	pass # replace with function body

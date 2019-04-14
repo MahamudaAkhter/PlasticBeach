@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=2]
@@ -6,14 +6,19 @@
 [ext_resource path="res://collected_pin.tscn" type="PackedScene" id=4]
 [ext_resource path="res://available_pin.tscn" type="PackedScene" id=5]
 [ext_resource path="res://progress_pin.tscn" type="PackedScene" id=6]
-[ext_resource path="res://add.tscn" type="PackedScene" id=7]
-[ext_resource path="res://images/profile.png" type="Texture" id=8]
-[ext_resource path="res://images/profile_hover.png" type="Texture" id=9]
-[ext_resource path="res://images/help.png" type="Texture" id=10]
-[ext_resource path="res://images/help_hover.png" type="Texture" id=11]
-[ext_resource path="res://panels/available_panel.tscn" type="PackedScene" id=12]
-[ext_resource path="res://panels/process_panel.tscn" type="PackedScene" id=13]
-[ext_resource path="res://panels/done_panel.tscn" type="PackedScene" id=14]
+[ext_resource path="res://available_newpin.tscn" type="PackedScene" id=7]
+[ext_resource path="res://images/add.png" type="Texture" id=8]
+[ext_resource path="res://images/add_hover.png" type="Texture" id=9]
+[ext_resource path="res://images/profile.png" type="Texture" id=10]
+[ext_resource path="res://images/profile_hover.png" type="Texture" id=11]
+[ext_resource path="res://images/help.png" type="Texture" id=12]
+[ext_resource path="res://images/help_hover.png" type="Texture" id=13]
+[ext_resource path="res://panels/available_panel.tscn" type="PackedScene" id=14]
+[ext_resource path="res://panels/process_panel.tscn" type="PackedScene" id=15]
+[ext_resource path="res://panels/done_panel.tscn" type="PackedScene" id=16]
+[ext_resource path="res://newPin.tscn" type="PackedScene" id=17]
+[ext_resource path="res://panels/new_panel.tscn" type="PackedScene" id=18]
+[ext_resource path="res://help.gd" type="Script" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -22,9 +27,10 @@ extents = Vector2( 10, 10 )
 
 [node name="Node2D" type="Node2D"]
 
-position = Vector2( 148, 217.073 )
+position = Vector2( 148, 212.073 )
 scale = Vector2( 4.625, 6.75228 )
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="bg" type="KinematicBody2D" parent="." index="0"]
 
@@ -68,36 +74,39 @@ editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Editor", "Limit", "Smoothing" ]
 
-[node name="Node2D" type="Node2D" parent="bg" index="2"]
+[node name="group" type="Node2D" parent="bg" index="2"]
 
-[node name="map" type="Sprite" parent="bg/Node2D" index="0"]
+[node name="map" type="Sprite" parent="bg/group" index="0"]
 
 position = Vector2( -0.9708, 2.93028 )
 scale = Vector2( 0.2, 0.15 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Rect", "Region", "Transform" ]
 
-[node name="Completed" parent="bg/Node2D" index="1" instance=ExtResource( 4 )]
+[node name="Completed" parent="bg/group" index="1" instance=ExtResource( 4 )]
 
 position = Vector2( -18.9936, -8.68999 )
-scale = Vector2( 0.0839965, 0.0566303 )
+scale = Vector2( 0.08, 0.06 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="available" parent="bg/Node2D" index="2" instance=ExtResource( 5 )]
+[node name="available" parent="bg/group" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 32.8917, -10.2247 )
-scale = Vector2( 0.0688694, 0.048621 )
+scale = Vector2( 0.08, 0.06 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="available3" parent="bg/Node2D" index="3" instance=ExtResource( 5 )]
-
-position = Vector2( -20.7516, 12.477 )
-scale = Vector2( 0.0752388, 0.0588576 )
-
-[node name="progress" parent="bg/Node2D" index="4" instance=ExtResource( 6 )]
+[node name="progress" parent="bg/group" index="3" instance=ExtResource( 6 )]
 
 position = Vector2( 28.5796, 18.6478 )
-scale = Vector2( 0.0967354, 0.0623608 )
+scale = Vector2( 0.08, 0.06 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="new" parent="bg/group" index="4" instance=ExtResource( 7 )]
+
+visible = false
+position = Vector2( 2, 5.4226 )
+scale = Vector2( 0.08, 0.06 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="footer" type="Panel" parent="." index="1"]
 
@@ -166,10 +175,32 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts", "custom_styles" ]
 
-[node name="Node2D" parent="footer" index="2" instance=ExtResource( 7 )]
+[node name="adding" type="TextureButton" parent="footer" index="2"]
 
-position = Vector2( 59.3784, 3.88453 )
-scale = Vector2( 0.164696, 0.107761 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 51.0
+margin_top = 1.0
+margin_right = 652.0
+margin_bottom = 602.0
+rect_scale = Vector2( 0.015, 0.01 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 9 )
+_sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="header" type="Panel" parent="." index="2"]
 
@@ -212,9 +243,9 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 9 )
-texture_hover = ExtResource( 9 )
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 11 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="help" type="TextureButton" parent="." index="4"]
@@ -239,45 +270,149 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 10 )
-texture_pressed = ExtResource( 11 )
-texture_hover = ExtResource( 11 )
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 13 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="panels" type="Node2D" parent="." index="5"]
 
-position = Vector2( 0.216217, 0 )
+position = Vector2( -1.9505, 0.989401 )
+scale = Vector2( 0.2, 0.15 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="available" parent="panels" index="0" instance=ExtResource( 12 )]
-
-visible = false
-margin_left = -19.0
-margin_top = -17.0
-margin_right = 110.0
-margin_bottom = 137.0
-rect_scale = Vector2( 0.3, 0.25 )
-_sections_unfolded = [ "Rect", "Theme", "Visibility", "custom_styles" ]
-
-[node name="progress" parent="panels" index="1" instance=ExtResource( 13 )]
+[node name="available" parent="panels" index="0" instance=ExtResource( 14 )]
 
 visible = false
-margin_left = -19.0
-margin_top = -17.0
-margin_right = 110.0
-margin_bottom = 137.0
-rect_scale = Vector2( 0.3, 0.25 )
+margin_left = -77.0
+margin_top = -136.0
+margin_right = 52.0
+margin_bottom = 18.0
+rect_scale = Vector2( 1.5, 1.5 )
 _sections_unfolded = [ "Rect", "Theme", "Visibility", "custom_styles" ]
 
-[node name="done" parent="panels" index="2" instance=ExtResource( 14 )]
+[node name="progress" parent="panels" index="1" instance=ExtResource( 15 )]
 
 visible = false
-margin_left = -18.0
-margin_top = -19.0
-margin_right = 111.0
-margin_bottom = 135.0
-rect_scale = Vector2( 0.3, 0.25 )
+margin_left = -82.0
+margin_top = -140.0
+margin_right = 47.0
+margin_bottom = 14.0
+rect_scale = Vector2( 1.5, 1.5 )
 _sections_unfolded = [ "Rect", "Theme", "Visibility", "custom_styles" ]
+
+[node name="done" parent="panels" index="2" instance=ExtResource( 16 )]
+
+visible = false
+margin_left = -94.0
+margin_top = -125.0
+margin_right = 35.0
+margin_bottom = 29.0
+rect_scale = Vector2( 1.5, 1.5 )
+_sections_unfolded = [ "Rect", "Theme", "Visibility", "custom_styles" ]
+
+[node name="add" parent="panels" index="3" instance=ExtResource( 17 )]
+
+visible = false
+margin_left = -136.0
+margin_top = -213.0
+margin_right = 159.0
+margin_bottom = 211.0
+_sections_unfolded = [ "Rect" ]
+
+[node name="new" parent="panels" index="4" instance=ExtResource( 18 )]
+
+visible = false
+margin_left = -90.0
+margin_top = -107.0
+margin_right = 39.0
+margin_bottom = 47.0
+rect_scale = Vector2( 1.5, 1.5 )
+_sections_unfolded = [ "Rect", "Theme", "Visibility", "custom_styles" ]
+
+[node name="help" type="Panel" parent="panels" index="5"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -133.0
+margin_top = -159.0
+margin_right = 172.0
+margin_bottom = 136.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 19 )
+
+[node name="Button" type="Button" parent="panels/help" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 124.0
+margin_top = 261.0
+margin_right = 171.0
+margin_bottom = 281.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Close"
+flat = false
+align = 1
+
+[node name="Label" type="Label" parent="panels/help" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 56.0
+margin_top = 23.0
+margin_right = 256.0
+margin_bottom = 241.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "The red pins indicate locations 
+of plastic litter which haven't 
+been cleaned. 
+
+The yellow pin indicates
+locations where there is
+litter but someone has 
+accepted to clean it
+
+The Green pins indicate
+locations where was litter
+but someone has cleared 
+it "
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="pressed" from="footer/adding" to="." method="_on_adding_pressed"]
 
 [connection signal="pressed" from="profile" to="." method="_on_profile_pressed"]
+
+[connection signal="pressed" from="help" to="panels/help" method="_on_help_pressed"]
+
+[connection signal="pressed" from="panels/help/Button" to="panels/help" method="_on_Button_pressed"]
 
 
