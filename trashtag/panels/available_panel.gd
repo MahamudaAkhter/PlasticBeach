@@ -25,5 +25,6 @@ func _on_close_pressed():
 func _on_accept_pressed():
 	global.accepted = true
 	global.type = 0
+	global.done += 1 
 	self.hide()
 	pass # replace with function body

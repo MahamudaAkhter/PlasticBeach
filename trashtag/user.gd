@@ -7,6 +7,8 @@ extends Node
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
+	$PinSumitted.text = "Pins submitted :"+ String(global.tags)
+	$Label.text = "Pins in progress: " + String(global.done)
 	pass
 
 #func _process(delta):

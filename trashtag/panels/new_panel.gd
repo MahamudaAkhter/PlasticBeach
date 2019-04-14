@@ -26,6 +26,7 @@ func _on_close_pressed():
 
 
 func _on_accept_pressed():
+	global.done +=1 
 	global.acceptednew = true
 	global.type = 0
 	self.hide()
